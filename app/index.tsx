@@ -7,15 +7,17 @@ import { StatusBar } from "expo-status-bar";
 import beachImage from "../assets/meditation-images/beach.webp";
 import "./global.css";
 import MButton from "@/components/MButton";
+import { useRouter } from "expo-router";
+import AppGradient from "@/components/AppGradient";
 
 const App = () => {
+  const router = useRouter();
+
   return (
     <View className="flex-1">
       <ImageBackground source={beachImage} className="flex-1">
-        <LinearGradient
-          style={styles.flexOne}
-          colors={["rgba(0,0,0,0.4)", "rgba(0,0,0,0.8)"]}>
-          <SafeAreaView className="flex-1 mx-5 my-12 justify-between">
+        <AppGradient colors={["rgba(0,0,0,0.4)", "rgba(0,0,0,0.8)"]}>
+          <SafeAreaView className="flex-1 px-1 justify-between">
             <View>
               <Text className="text-center text-white font-bold text-4xl">
                 Muse Meditation
@@ -26,13 +28,12 @@ const App = () => {
             </View>
             <View>
               <MButton
-                onPress={() => console.log("Tapped!")}
+                onPress={() => router.push("/nature-meditate")}
                 title="Get Started"></MButton>
             </View>
-
             <StatusBar style="light" />
           </SafeAreaView>
-        </LinearGradient>
+        </AppGradient>
       </ImageBackground>
     </View>
   );
