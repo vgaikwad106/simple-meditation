@@ -38,53 +38,44 @@ This is a meditation and affirmations app built using ReactNative. It offers med
 ## Steps to Run
 Follow these steps to set up the project locally on your machine.
 
-Prerequisites
-
+### Prerequisites
 Make sure you have the following installed on your machine:
 
-Git
-Node.js
-npm (Node Package Manager)
-Cloning the Repository
+- Git
+- Node.js
+- npm (Node Package Manager)
 
-git clone https://github.com/stevenGarciaDev/simple-meditation-app-expo-react-native.git
-cd simple-meditation-app-expo-react-native
-Updating Dependencies To ensure your project is using the latest stable versions of Expo and React Native:
+### Cloning the Repository
 
+`git clone https://github.com/vgaikwad106/simple-meditation.git
+cd simple-meditation-app-expo-react-native`
+
+### Updating Dependencies To ensure your project is using the latest stable versions of Expo and React Native:
 Run the Expo upgrade command:
 
-expo upgrade
+`expo upgrade`
 This will update package.json and install the correct versions of dependencies.
 
-Installation
+### Installation
 
 If you did not run, expo upgrade, then install the project dependencies manually using npm:
 
-npm install
-Fixing Vulnerabilities
+`npm install`
 
-If you see security vulnerabilities or warnings after running npm install, follow these steps:
-
-Check for vulnerabilities
-
-npm audit
-Fix vulnerabilities
-
-npm audit fix
-Running the Project
-
+### Running the Project
 The --clear flag clears the cache.
 
-npx expo start --clear
-Expo Go
+`npx expo start --clear`
+
+### Expo Go
 
 Download the Expo Go app onto your device, then use it to scan the QR code from Terminal and run.
 
-iOS Simulator
+#### iOS Simulator
 
 Navigate to the Expo documentation to learn how to install and run your application on an iOS Simulator for local development.
 
-Android Emulator
+#### Android Emulator
 
 Navigate to the Expo documentation to learn how to install and run your application on an Android Emulator for local development.
 
