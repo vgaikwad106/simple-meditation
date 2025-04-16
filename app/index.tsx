@@ -9,6 +9,7 @@ import "./global.css";
 import MButton from "@/components/MButton";
 import { useRouter } from "expo-router";
 import AppGradient from "@/components/AppGradient";
+import meditateIcon from "../assets/meditate-icon.png";
 
 const App = () => {
   const router = useRouter();
@@ -19,6 +20,9 @@ const App = () => {
         <AppGradient colors={["rgba(0,0,0,0.4)", "rgba(0,0,0,0.8)"]}>
           <SafeAreaView className="flex-1 px-1 justify-between">
             <View>
+              <View className="items-center mb-5">
+                <Image source={meditateIcon} />
+              </View>
               <Text className="text-center text-white font-bold text-4xl">
                 Muse Meditation
               </Text>
