@@ -24,11 +24,20 @@ This is a meditation and affirmations app built using ReactNative. It offers med
 ## Features
 👉 Onboarding Screen: Welcome screen with a linear gradient to help users get started with the app.
 
+<img src="https://github.com/user-attachments/assets/7e28a3ab-3e64-4fc8-893e-4b19ee58dd24" alt="Screenshot of welcome screen" width="150"/>
+
 👉 Meditation List Screen with Flat List: A flat list displays previews of various meditations with corresponding images.
+
+<img src="https://github.com/user-attachments/assets/3a2cd067-4f17-4c3f-8c83-09ce05454b0f" alt="Screenshot of meditation list screen" width="150"/>
 
 👉 Audio Playing Capability: Control audio playback and manage a meditation countdown timer.
 
+<img src="https://github.com/user-attachments/assets/6c2e641c-5885-4dc2-ba6a-ddb8efedc308" alt="Screenshot of meditation player screen" width="150"/>
+
 👉 Affirmation List and Affirmation screen: A screen that list multiple affirmations under different categories and a screen that shows individual affirmations for users to read.
+
+<img src="https://github.com/user-attachments/assets/42bb5bdc-8306-4575-887c-30e8758b72bc" alt="Screenshot of affirmation list screen" width="150"/>
+<img src="https://github.com/user-attachments/assets/c2b32c03-c715-44ff-bb8b-3964afa17fbe" alt="Screenshot of meditation player screen" width="150"/>
 
 👉 Tab Navigation: Navigate between sections like the Meditation Screen and Affirmations screen with ease using tab navigation.
 
