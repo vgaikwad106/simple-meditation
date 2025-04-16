@@ -26,6 +26,8 @@ const Meditate = () => {
     //Exit
     if (secondsRem === 0) {
       setIsMeditating(false);
+      audio?.pauseAsync();
+      setIsPlaying(false);
       return;
     }
     //called every second not when mounts but only when isMeditating
