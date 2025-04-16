@@ -7,6 +7,7 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import MButton from "@/components/MButton";
 import { Audio } from "expo-av";
 import { MEDITATION_DATA, AUDIO_FILES } from "@/constants/MeditationData";
+import SButton from "@/components/SButton";
 
 const Meditate = () => {
   const { id } = useLocalSearchParams();
@@ -83,6 +84,11 @@ const Meditate = () => {
     return sound;
   };
 
+  const handleAdjustDuration = () => {
+    if (isMeditating) toggleMeditationsessionStatus();
+    router.push("/(modal)/adjustMeditationDuration");
+  };
+
   return (
     <View className="flex-1">
       <ImageBackground
@@ -107,10 +113,10 @@ const Meditate = () => {
             <MButton
               title="Start Meditation"
               onPress={toggleMeditationsessionStatus}></MButton>
-            <MButton
+            <SButton
               title="Adjust Duration"
-              onPress={toggleMeditationsessionStatus}
-              containerStyles="mt-4"></MButton>
+              onPress={handleAdjustDuration}
+              containerStyles="mt-4 rounded-xl"></SButton>
           </View>
         </AppGradient>
       </ImageBackground>
