@@ -94,6 +94,13 @@ const Meditate = () => {
     router.push("/(modal)/adjustMeditationDuration");
   };
 
+  //Formatting the time to show minutes and seconds
+  const formattedTimeMinutes = String(Math.floor(secondsRem / 60)).padStart(
+    2,
+    "0"
+  );
+  const formattedTimeSeconds = String(secondsRem % 60).padStart(2, "0");
+
   return (
     <View className="flex-1">
       <ImageBackground
@@ -109,7 +116,7 @@ const Meditate = () => {
           <View className="flex-1 justify-center">
             <View className="mx-auto bg-neutral-200 rounded-full w-44 h-44 justify-center items-center">
               <Text className="text-4xl text-blue-600 font-rmono">
-                00:{secondsRem}
+                {formattedTimeMinutes}:{formattedTimeSeconds}
               </Text>
             </View>
           </View>
