@@ -1,5 +1,5 @@
 import { View, Text, ImageBackground, Pressable } from "react-native";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MEDITATION_IMAGES from "@/constants/meditation-images";
 import AppGradient from "@/components/AppGradient";
 import { router, useLocalSearchParams } from "expo-router";
@@ -8,13 +8,17 @@ import MButton from "@/components/MButton";
 import { Audio } from "expo-av";
 import { MEDITATION_DATA, AUDIO_FILES } from "@/constants/MeditationData";
 import SButton from "@/components/SButton";
+import { TimerContext } from "@/context/TimerContext";
 
 const Meditate = () => {
   const { id } = useLocalSearchParams();
-  const [secondsRem, setSecondRem] = useState(10);
+  //const [secondsRem, setSecondRem] = useState(10);
   const [isMeditating, setIsMeditating] = useState(false);
   const [audio, setAudio] = useState<Audio.Sound>();
   const [isPlaying, setIsPlaying] = useState(false);
+
+  const { duration: secondsRem, setDuration: setSecondRem } =
+    useContext(TimerContext);
 
   //useEffect for changing timer when start meditation is pressed and called everytime the secondsRem changes
   useEffect(() => {
@@ -43,6 +47,7 @@ const Meditate = () => {
       audio?.unloadAsync();
       setIsMeditating(!isMeditating);
       setIsPlaying(!isPlaying);
+      setSecondRem(10);
     };
   }, [audio]);
 
@@ -111,7 +116,7 @@ const Meditate = () => {
 
           <View className="mb-5">
             <MButton
-              title="Start Meditation"
+              title={isMeditating ? "Stop" : "Start Meditation"}
               onPress={toggleMeditationsessionStatus}></MButton>
             <SButton
               title="Adjust Duration"

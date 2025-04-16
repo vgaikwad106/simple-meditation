@@ -1,14 +1,19 @@
 import { View, Text, Pressable } from "react-native";
-import React from "react";
+import React, { useContext } from "react";
 import AppGradient from "@/components/AppGradient";
 import { router } from "expo-router";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import SButton from "@/components/SButton";
+import { TimerContext } from "@/context/TimerContext";
 
 const AdjustMeditationDuration = () => {
+  const { setDuration } = useContext(TimerContext);
+
   const handlePress = (duration: number) => {
+    setDuration(duration);
     router.back();
   };
+
   return (
     <View className="flex-1 relative">
       <AppGradient colors={["#161b2e", "#084d4a", "#766e67"]}>
