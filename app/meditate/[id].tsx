@@ -5,13 +5,15 @@ import AppGradient from "@/components/AppGradient";
 import { router, useLocalSearchParams } from "expo-router";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import MButton from "@/components/MButton";
+import { Audio } from "expo-av";
+import { MEDITATION_DATA, AUDIO_FILES } from "@/constants/MeditationData";
 
 const Meditate = () => {
   const { id } = useLocalSearchParams();
-
   const [secondsRem, setSecondRem] = useState(10);
-
   const [isMeditating, setIsMeditating] = useState(false);
+  const [audio, setAudio] = useState<Audio.Sound>();
+  const [isPlaying, setIsPlaying] = useState(false);
 
   //useEffect for changing timer when start meditation is pressed and called everytime the secondsRem changes
   useEffect(() => {
@@ -33,6 +35,53 @@ const Meditate = () => {
       clearTimeout(timerId);
     };
   }, [secondsRem, isMeditating]);
+
+  //useEffect for stopping audio when component demounts
+  useEffect(() => {
+    return () => {
+      audio?.unloadAsync();
+      setIsMeditating(!isMeditating);
+      setIsPlaying(!isPlaying);
+    };
+  }, [audio]);
+
+  //for audio sound
+  const toggleMeditationsessionStatus = async () => {
+    if (secondsRem === 0) setSecondRem(10);
+    setIsMeditating(!isMeditating);
+
+    await toggleAudio();
+  };
+
+  const toggleAudio = async () => {
+    //check or initialize sound if not already initialized
+    const sound = audio ? audio : await initializeSound();
+
+    const status = await sound?.getStatusAsync();
+
+    //call the play method baased on status
+    if (status?.isLoaded && !isPlaying) {
+      await sound.playAsync();
+      setIsPlaying(true);
+    } else {
+      await sound.pauseAsync();
+      setIsPlaying(false);
+    }
+  };
+
+  const initializeSound = async () => {
+    //find the audio file name
+    const audioFileName = MEDITATION_DATA[Number(id) - 1].audio;
+
+    //get the audio file
+    const { sound } = await Audio.Sound.createAsync(AUDIO_FILES[audioFileName]);
+
+    //set audio state with sound
+    setAudio(sound);
+
+    //return the sound
+    return sound;
+  };
 
   return (
     <View className="flex-1">
@@ -57,7 +106,11 @@ const Meditate = () => {
           <View className="mb-5">
             <MButton
               title="Start Meditation"
-              onPress={() => setIsMeditating(true)}></MButton>
+              onPress={toggleMeditationsessionStatus}></MButton>
+            <MButton
+              title="Adjust Duration"
+              onPress={toggleMeditationsessionStatus}
+              containerStyles="mt-4"></MButton>
           </View>
         </AppGradient>
       </ImageBackground>
