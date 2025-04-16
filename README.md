@@ -1,50 +1,90 @@
-# Welcome to your Expo app 👋
+# MUSE MEDITATION - A meditation and affirmations app!
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This project was built step-by-step as a part of a ReactNative tutorial I did.
 
-## Get started
+## 📋 Table of Contents
+1. Introduction
+2. Tech Stack
+3. Features
+4. Steps to Run
 
-1. Install dependencies
 
-   ```bash
-   npm install
-   ```
+## Introduction
+This is a meditation and affirmations app built using ReactNative. It offers meditation sounds and affirmations to read which is designed using FlatLists, LinearGradient, modals, tab bars, icons, and file-based routing with Expo Router. This project also has some UI and functional enhancements that I did to improve the user experience!
 
-2. Start the app
 
-   ```bash
-    npx expo start
-   ```
+## Tech Stack
+1. React Native
+2. Expo
+3. NativeWind
+4. JavaScript
+5. TypeScript
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Features
+👉 Onboarding Screen: Welcome screen with a linear gradient to help users get started with the app.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+👉 Meditation List Screen with Flat List: A flat list displays previews of various meditations with corresponding images.
 
-## Get a fresh project
+👉 Audio Playing Capability: Control audio playback and manage a meditation countdown timer.
 
-When you're ready, run:
+👉 Affirmation List and Affirmation screen: A screen that list multiple affirmations under different categories and a screen that shows individual affirmations for users to read.
 
-```bash
-npm run reset-project
-```
+👉 Tab Navigation: Navigate between sections like the Meditation Screen and Affirmations screen with ease using tab navigation.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+👉 Responsiveness: Smooth performance and adaptability across various devices and screen sizes for a consistent user experience.
 
-## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
+## Steps to Run
+Follow these steps to set up the project locally on your machine.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Prerequisites
 
-## Join the community
+Make sure you have the following installed on your machine:
 
-Join our community of developers creating universal apps.
+Git
+Node.js
+npm (Node Package Manager)
+Cloning the Repository
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+git clone https://github.com/stevenGarciaDev/simple-meditation-app-expo-react-native.git
+cd simple-meditation-app-expo-react-native
+Updating Dependencies To ensure your project is using the latest stable versions of Expo and React Native:
+
+Run the Expo upgrade command:
+
+expo upgrade
+This will update package.json and install the correct versions of dependencies.
+
+Installation
+
+If you did not run, expo upgrade, then install the project dependencies manually using npm:
+
+npm install
+Fixing Vulnerabilities
+
+If you see security vulnerabilities or warnings after running npm install, follow these steps:
+
+Check for vulnerabilities
+
+npm audit
+Fix vulnerabilities
+
+npm audit fix
+Running the Project
+
+The --clear flag clears the cache.
+
+npx expo start --clear
+Expo Go
+
+Download the Expo Go app onto your device, then use it to scan the QR code from Terminal and run.
+
+iOS Simulator
+
+Navigate to the Expo documentation to learn how to install and run your application on an iOS Simulator for local development.
+
+Android Emulator
+
+Navigate to the Expo documentation to learn how to install and run your application on an Android Emulator for local development.
+
